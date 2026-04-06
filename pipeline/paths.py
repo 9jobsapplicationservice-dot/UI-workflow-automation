@@ -11,6 +11,7 @@ class RunPaths:
     run_id: str
     run_dir: Path
     applied_csv: Path
+    external_jobs_csv: Path
     recruiters_csv: Path
     send_report_csv: Path
     manifest_json: Path
@@ -69,6 +70,7 @@ class PipelinePaths:
             run_id=run_id,
             run_dir=run_dir,
             applied_csv=run_dir / "applied_jobs.csv",
+            external_jobs_csv=run_dir / "external_jobs.csv",
             recruiters_csv=run_dir / "recruiters_enriched.csv",
             send_report_csv=self.reports_dir / f"{run_id}.csv",
             manifest_json=self.meta_dir / f"{run_id}.json",

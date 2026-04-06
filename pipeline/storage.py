@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS runs (
     config_path TEXT,
     run_dir TEXT NOT NULL,
     applied_csv_path TEXT NOT NULL,
+    external_jobs_csv_path TEXT NOT NULL,
     recruiters_csv_path TEXT NOT NULL,
     send_report_path TEXT NOT NULL,
     manifest_path TEXT NOT NULL,
@@ -51,6 +52,14 @@ class PipelineStore:
     def _initialize(self) -> None:
         with self._connect() as connection:
             connection.execute(CREATE_RUNS_TABLE_SQL)
+            existing_columns = {
+                row["name"]
+                for row in connection.execute("PRAGMA table_info(runs)").fetchall()
+            }
+            if "external_jobs_csv_path" not in existing_columns:
+                connection.execute(
+                    "ALTER TABLE runs ADD COLUMN external_jobs_csv_path TEXT NOT NULL DEFAULT ''"
+                )
             connection.commit()
 
     def _copy_config(self, run_paths, config_path: str | None) -> str:
@@ -69,6 +78,7 @@ class PipelineStore:
     def _reset_live_artifacts(self, run_paths) -> None:
         for artifact_path in (
             run_paths.applied_csv,
+            run_paths.external_jobs_csv,
             run_paths.recruiters_csv,
             run_paths.failed_jobs_csv,
         ):
@@ -80,6 +90,7 @@ class PipelineStore:
         return (
             Path(record.get('run_dir') or '') == shared_paths.run_dir
             and Path(record.get('applied_csv_path') or '') == shared_paths.applied_csv
+            and Path(record.get('external_jobs_csv_path') or '') == shared_paths.external_jobs_csv
             and Path(record.get('recruiters_csv_path') or '') == shared_paths.recruiters_csv
         )
 
@@ -171,6 +182,7 @@ class PipelineStore:
 
                     updates = {
                         'config_path': migrated_config_path,
+                        'external_jobs_csv_path': str(run_paths.external_jobs_csv),
                         'send_report_path': str(run_paths.send_report_csv),
                         'manifest_path': str(run_paths.manifest_json),
                         'log_dir': str(run_paths.logs_dir),
@@ -248,6 +260,7 @@ class PipelineStore:
             'config_path': copied_config_path,
             'run_dir': str(run_paths.run_dir),
             'applied_csv_path': str(run_paths.applied_csv),
+            'external_jobs_csv_path': str(run_paths.external_jobs_csv),
             'recruiters_csv_path': str(run_paths.recruiters_csv),
             'send_report_path': str(run_paths.send_report_csv),
             'manifest_path': str(run_paths.manifest_json),

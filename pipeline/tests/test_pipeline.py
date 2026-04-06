@@ -14,6 +14,14 @@ from pipeline.storage import PipelineStore
 from pipeline.worker import PipelineWorker
 from pipeline.adapters import StageError, TransientStageError
 
+EXTERNAL_JOBS_HEADERS = [
+    'Date',
+    'Company Name',
+    'Position',
+    'HR Name',
+    'HR Profile Link',
+]
+
 
 def write_csv(path: Path, header: list[str], rows: list[dict[str, str]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -222,6 +230,7 @@ class PipelineWorkerTests(unittest.TestCase):
         self.assertTrue(Path(record['manifest_path']).parent.name == 'meta')
         self.assertTrue(Path(record['log_dir']).parent.name == 'logs')
         self.assertTrue(Path(record['send_report_path']).parent.name == 'reports')
+        self.assertEqual(Path(record['external_jobs_csv_path']).name, 'external_jobs.csv')
         self.assertEqual(sorted(path.name for path in run_dir.iterdir()), [])
 
     def test_create_run_reuses_single_live_folder_and_resets_artifacts(self) -> None:
@@ -265,10 +274,22 @@ class PipelineWorkerTests(unittest.TestCase):
                 'HR Profile Link': 'https://linkedin.com/in/jane-doe',
             }],
         )
+        write_csv(
+            Path(record['external_jobs_csv_path']),
+            EXTERNAL_JOBS_HEADERS,
+            [{
+                'Date': '31/03/2026',
+                'Company Name': 'Acme',
+                'Position': 'Backend Engineer',
+                'HR Name': 'Jane Doe',
+                'HR Profile Link': 'https://linkedin.com/in/jane-doe',
+            }],
+        )
 
         store.reset_live_artifacts_for_run(record['id'])
 
         self.assertFalse(Path(record['applied_csv_path']).exists())
+        self.assertFalse(Path(record['external_jobs_csv_path']).exists())
         self.assertFalse(Path(record['recruiters_csv_path']).exists())
 
     def test_worker_processes_linkedin_then_rocketreach(self) -> None:
@@ -290,9 +311,20 @@ class PipelineWorkerTests(unittest.TestCase):
                     'HR Profile Link': 'https://linkedin.com/in/jane-doe',
                 }],
             )
+            write_csv(
+                Path(run_record['external_jobs_csv_path']),
+                EXTERNAL_JOBS_HEADERS,
+                [{
+                    'Date': '31/03/2026',
+                    'Company Name': 'Beta',
+                    'Position': 'External Engineer',
+                    'HR Name': 'Rita Recruiter',
+                    'HR Profile Link': 'https://linkedin.com/in/rita-recruiter',
+                }],
+            )
             return {
                 'jobs_applied': 1,
-                'external_links_logged': 0,
+                'external_links_logged': 1,
                 'rows_written_to_applied_csv': 1,
                 'rows_missing_hr_profile': 0,
                 'unexpected_failure': False,
@@ -336,10 +368,11 @@ class PipelineWorkerTests(unittest.TestCase):
         self.assertEqual(final_record['status'], 'waiting_review')
         self.assertIn('sendable_rows=1', final_record['note'])
         self.assertTrue(Path(final_record['applied_csv_path']).exists())
+        self.assertTrue(Path(final_record['external_jobs_csv_path']).exists())
         self.assertTrue(Path(final_record['recruiters_csv_path']).exists())
         self.assertEqual(
             sorted(path.name for path in Path(final_record['run_dir']).iterdir()),
-            ['applied_jobs.csv', 'recruiters_enriched.csv'],
+            ['applied_jobs.csv', 'external_jobs.csv', 'recruiters_enriched.csv'],
         )
         self.assertEqual(Path(final_record['run_dir']).name, 'runs')
         self.assertTrue(Path(final_record['manifest_path']).parent.name == 'meta')
@@ -634,9 +667,21 @@ class PipelineWorkerTests(unittest.TestCase):
                 'RocketReach Status': 'matched',
             }],
         )
+        write_csv(
+            Path(record['external_jobs_csv_path']),
+            EXTERNAL_JOBS_HEADERS,
+            [{
+                'Date': '31/03/2026',
+                'Company Name': 'OldCo',
+                'Position': 'External Old Role',
+                'HR Name': 'Old Recruiter',
+                'HR Profile Link': 'https://linkedin.com/in/old-recruiter',
+            }],
+        )
 
         def fake_linkedin(run_record: dict, python_executable: str | None = None) -> dict:
             self.assertFalse(Path(run_record['applied_csv_path']).exists())
+            self.assertFalse(Path(run_record['external_jobs_csv_path']).exists())
             self.assertFalse(Path(run_record['recruiters_csv_path']).exists())
             write_csv(
                 Path(run_record['applied_csv_path']),
@@ -652,9 +697,20 @@ class PipelineWorkerTests(unittest.TestCase):
                     'HR Profile Link': 'https://linkedin.com/in/new-recruiter',
                 }],
             )
+            write_csv(
+                Path(run_record['external_jobs_csv_path']),
+                EXTERNAL_JOBS_HEADERS,
+                [{
+                    'Date': '31/03/2026',
+                    'Company Name': 'ExternalCo',
+                    'Position': 'External New Role',
+                    'HR Name': 'Ext Recruiter',
+                    'HR Profile Link': 'https://linkedin.com/in/ext-recruiter',
+                }],
+            )
             return {
                 'jobs_applied': 1,
-                'external_links_logged': 0,
+                'external_links_logged': 1,
                 'rows_written_to_applied_csv': 1,
                 'rows_missing_hr_profile': 0,
                 'unexpected_failure': False,
@@ -697,9 +753,12 @@ class PipelineWorkerTests(unittest.TestCase):
 
         self.assertEqual(final_record['status'], 'waiting_review')
         applied_rows = Path(final_record['applied_csv_path']).read_text(encoding='utf-8-sig')
+        external_rows = Path(final_record['external_jobs_csv_path']).read_text(encoding='utf-8-sig')
         recruiters_rows = Path(final_record['recruiters_csv_path']).read_text(encoding='utf-8-sig')
         self.assertIn('NewCo', applied_rows)
         self.assertNotIn('OldCo', applied_rows)
+        self.assertIn('ExternalCo', external_rows)
+        self.assertNotIn('OldCo', external_rows)
         self.assertIn('new@newco.com', recruiters_rows)
         self.assertNotIn('old@oldco.com', recruiters_rows)
 

@@ -2895,3 +2895,41 @@ Top Sponsors:
 Be the first to have your name here!
 Closing the browser...
 LinkedIn stage summary: {'jobs_applied': 3, 'external_links_logged': 33, 'rows_written_to_applied_csv': 3, 'rows_missing_hr_profile': 3, 'failed_jobs': 6, 'skipped_jobs': 4, 'total_runs': 1, 'pipeline_mode': True}
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Logging in with a guest profile, Web history will not be saved!
+Downloading Chrome Driver... This may take some time. Undetected mode requires download every run!
+Detected Chrome major version 146 for undetected-chromedriver
+Failed to create Chrome Session, retrying with guest profile
+Message: session not created: cannot connect to chrome at 127.0.0.1:50380
+from chrome not reachable; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x34cdf3+10b03]
+	undetected_chromedriver!GetHandleVerifier [0x34cf24+10c34]
+	undetected_chromedriver!(No symbol) [0x131f5e]
+	undetected_chromedriver!(No symbol) [0x125758]
+	undetected_chromedriver!(No symbol) [0x16c472]
+	undetected_chromedriver!(No symbol) [0x162785]
+	undetected_chromedriver!(No symbol) [0x1625a6]
+	undetected_chromedriver!(No symbol) [0x1a9cbf]
+	undetected_chromedriver!(No symbol) [0x1a94d7]
+	undetected_chromedriver!(No symbol) [0x19d8a6]
+	undetected_chromedriver!(No symbol) [0x170229]
+	undetected_chromedriver!(No symbol) [0x170fe4]
+	undetected_chromedriver!GetHandleVerifier [0x5b48b9+2785c9]
+	undetected_chromedriver!GetHandleVerifier [0x5afeb5+273bc5]
+	undetected_chromedriver!GetHandleVerifier [0x5ce06b+291d7b]
+	undetected_chromedriver!GetHandleVerifier [0x365cc8+299d8]
+	undetected_chromedriver!GetHandleVerifier [0x36d9fd+3170d]
+	undetected_chromedriver!GetHandleVerifier [0x3558c8+195d8]
+	undetected_chromedriver!GetHandleVerifier [0x355a92+197a2]
+	undetected_chromedriver!GetHandleVerifier [0x33ee9a+2baa]
+	KERNEL32!BaseThreadInitThunk [0x7613fcc9+19]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x772782ae+11e]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x7727827e+ee]
+	(No symbol) [(nil)]
+
+2026-04-06 10:27:30.608975
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Will login with a guest profile, browsing history will not be saved in the browser!
+Downloading Chrome Driver... This may take some time. Undetected mode requires download every run!
+Detected Chrome major version 146 for undetected-chromedriver

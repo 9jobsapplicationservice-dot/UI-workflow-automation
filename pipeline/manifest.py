@@ -19,6 +19,7 @@ def build_manifest(record: dict) -> dict:
         "paths": {
             "run_dir": record["run_dir"],
             "applied_csv": record["applied_csv_path"],
+            "external_jobs_csv": record["external_jobs_csv_path"],
             "recruiters_csv": record["recruiters_csv_path"],
             "send_report_csv": record["send_report_path"],
             "manifest_json": record["manifest_path"],
@@ -30,6 +31,7 @@ def build_manifest(record: dict) -> dict:
         },
         "artifacts": {
             "applied_csv_exists": Path(record["applied_csv_path"]).exists(),
+            "external_jobs_csv_exists": Path(record["external_jobs_csv_path"]).exists(),
             "recruiters_csv_exists": Path(record["recruiters_csv_path"]).exists(),
             "send_report_exists": Path(record["send_report_path"]).exists(),
         },
