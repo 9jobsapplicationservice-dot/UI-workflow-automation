@@ -787,3 +787,140 @@ Top Sponsors:
 Be the first to have your name here!
 Closing the browser...
 LinkedIn stage summary: {'jobs_applied': 2, 'external_links_logged': 5, 'rows_written_to_applied_csv': 2, 'rows_written_to_external_csv': 5, 'rows_missing_hr_profile': 1, 'failed_jobs': 2, 'skipped_jobs': 3, 'total_runs': 1, 'pipeline_mode': True}
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Logging in with a guest profile, Web history will not be saved!
+Downloading Chrome Driver... This may take some time. Undetected mode requires download every run!
+Detected Chrome major version 146 for undetected-chromedriver
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Logging in with a guest profile, Web history will not be saved!
+Downloading Chrome Driver... This may take some time. Undetected mode requires download every run!
+Detected Chrome major version 146 for undetected-chromedriver
+Failed to create Chrome Session, retrying with guest profile
+Message: session not created: cannot connect to chrome at 127.0.0.1:51137
+from chrome not reachable; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x5bcdf3+10b03]
+	undetected_chromedriver!GetHandleVerifier [0x5bcf24+10c34]
+	undetected_chromedriver!(No symbol) [0x3a1f5e]
+	undetected_chromedriver!(No symbol) [0x395758]
+	undetected_chromedriver!(No symbol) [0x3dc472]
+	undetected_chromedriver!(No symbol) [0x3d2785]
+	undetected_chromedriver!(No symbol) [0x3d25a6]
+	undetected_chromedriver!(No symbol) [0x419cbf]
+	undetected_chromedriver!(No symbol) [0x4194d7]
+	undetected_chromedriver!(No symbol) [0x40d8a6]
+	undetected_chromedriver!(No symbol) [0x3e0229]
+	undetected_chromedriver!(No symbol) [0x3e0fe4]
+	undetected_chromedriver!GetHandleVerifier [0x8248b9+2785c9]
+	undetected_chromedriver!GetHandleVerifier [0x81feb5+273bc5]
+	undetected_chromedriver!GetHandleVerifier [0x83e06b+291d7b]
+	undetected_chromedriver!GetHandleVerifier [0x5d5cc8+299d8]
+	undetected_chromedriver!GetHandleVerifier [0x5dd9fd+3170d]
+	undetected_chromedriver!GetHandleVerifier [0x5c58c8+195d8]
+	undetected_chromedriver!GetHandleVerifier [0x5c5a92+197a2]
+	undetected_chromedriver!GetHandleVerifier [0x5aee9a+2baa]
+	KERNEL32!BaseThreadInitThunk [0x7613fcc9+19]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x772782ae+11e]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x7727827e+ee]
+
+2026-04-06 11:00:22.305087
+IF YOU HAVE MORE THAN 10 TABS OPENED, PLEASE CLOSE OR BOOKMARK THEM! Or it's highly likely that application will just open browser and not do anything!
+Will login with a guest profile, browsing history will not be saved in the browser!
+Downloading Chrome Driver... This may take some time. Undetected mode requires download every run!
+Detected Chrome major version 146 for undetected-chromedriver
+Seems like login attempt failed! Possibly due to wrong credentials or already logged in! Try logging in manually!
+Seems like you're not logged in!
+Seems like you're not logged in!
+Seems like you're not logged in!
+Configuring Gemini client...
+Error occurred while configuring Gemini client. Make sure your API key and model name are correct.
+Gemini API key is not set. Please set it in `config/secrets.py`.
+2026-04-06 11:00:34.459069
+Extracted about company info for AI: 'Alok Yadav'
+
+########################################################################################################################
+
+Date and Time: 2026-04-06 11:00:34.524070
+Cycle number: 1
+Currently looking for jobs posted within 'Past week' and sorting them by ''
+
+________________________________________________________________________________________________________________________
+
+
+>>>> Now searching for "Software Developer" <<<<
+
+
+Setting search location as: "Melbourne,Victoria,Australia"
+Search Location input was not given!
+Setting the preferences failed!
+Continuing with current search results after filter setup issue.
+Message: 
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x107cdf3+10b03]
+	undetected_chromedriver!GetHandleVerifier [0x107cf24+10c34]
+	undetected_chromedriver!(No symbol) [0xe62120]
+	undetected_chromedriver!(No symbol) [0xeaabca]
+	undetected_chromedriver!(No symbol) [0xeaae6b]
+	undetected_chromedriver!(No symbol) [0xeed0b2]
+	undetected_chromedriver!(No symbol) [0xecdb54]
+	undetected_chromedriver!(No symbol) [0xeea9a5]
+	undetected_chromedriver!(No symbol) [0xecd8a6]
+	undetected_chromedriver!(No symbol) [0xea0229]
+	undetected_chromedriver!(No symbol) [0xea0fe4]
+	undetected_chromedriver!GetHandleVerifier [0x12e48b9+2785c9]
+	undetected_chromedriver!GetHandleVerifier [0x12dfeb5+273bc5]
+	undetected_chromedriver!GetHandleVerifier [0x12fe06b+291d7b]
+	undetected_chromedriver!GetHandleVerifier [0x1095cc8+299d8]
+	undetected_chromedriver!GetHandleVerifier [0x109d9fd+3170d]
+	undetected_chromedriver!GetHandleVerifier [0x10858c8+195d8]
+	undetected_chromedriver!GetHandleVerifier [0x1085a92+197a2]
+	undetected_chromedriver!GetHandleVerifier [0x106ee9a+2baa]
+	KERNEL32!BaseThreadInitThunk [0x7613fcc9+19]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x772782ae+11e]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x7727827e+ee]
+
+Recoverable webdriver issue while processing job listings. Continuing current run.
+Message: 
+
+
+________________________________________________________________________________________________________________________
+
+
+>>>> Now searching for "Web Developer" <<<<
+
+
+Setting search location as: "Melbourne,Victoria,Australia"
+Search Location input was not given!
+Setting the preferences failed!
+Continuing with current search results after filter setup issue.
+Message: 
+Stacktrace:
+	undetected_chromedriver!GetHandleVerifier [0x107cdf3+10b03]
+	undetected_chromedriver!GetHandleVerifier [0x107cf24+10c34]
+	undetected_chromedriver!(No symbol) [0xe62120]
+	undetected_chromedriver!(No symbol) [0xeaabca]
+	undetected_chromedriver!(No symbol) [0xeaae6b]
+	undetected_chromedriver!(No symbol) [0xeed0b2]
+	undetected_chromedriver!(No symbol) [0xecdb54]
+	undetected_chromedriver!(No symbol) [0xeea9a5]
+	undetected_chromedriver!(No symbol) [0xecd8a6]
+	undetected_chromedriver!(No symbol) [0xea0229]
+	undetected_chromedriver!(No symbol) [0xea0fe4]
+	undetected_chromedriver!GetHandleVerifier [0x12e48b9+2785c9]
+	undetected_chromedriver!GetHandleVerifier [0x12dfeb5+273bc5]
+	undetected_chromedriver!GetHandleVerifier [0x12fe06b+291d7b]
+	undetected_chromedriver!GetHandleVerifier [0x1095cc8+299d8]
+	undetected_chromedriver!GetHandleVerifier [0x109d9fd+3170d]
+	undetected_chromedriver!GetHandleVerifier [0x10858c8+195d8]
+	undetected_chromedriver!GetHandleVerifier [0x1085a92+197a2]
+	undetected_chromedriver!GetHandleVerifier [0x106ee9a+2baa]
+	KERNEL32!BaseThreadInitThunk [0x7613fcc9+19]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x772782ae+11e]
+	ntdll!RtlGetAppContainerNamedObjectPath [0x7727827e+ee]
+
+Recoverable webdriver issue while processing job listings. Continuing current run.
+Message: 
+
+########################################################################################################################
+
+Sleeping for 10 min...

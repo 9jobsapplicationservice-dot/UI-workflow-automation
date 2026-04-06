@@ -12,6 +12,7 @@
   "paths": {
     "run_dir": "D:\\Automation- Project\\pipeline\\runs\\run-ab359d013451",
     "applied_csv": "D:\\Automation- Project\\pipeline\\runs\\run-ab359d013451\\applied_jobs.csv",
+    "external_jobs_csv": "D:\\Automation- Project\\pipeline\\runs\\external_jobs.csv",
     "recruiters_csv": "D:\\Automation- Project\\pipeline\\runs\\run-ab359d013451\\recruiters_enriched.csv",
     "send_report_csv": "D:\\Automation- Project\\pipeline\\reports\\run-ab359d013451.csv",
     "manifest_json": "D:\\Automation- Project\\pipeline\\meta\\run-ab359d013451.json",
@@ -23,6 +24,7 @@
   },
   "artifacts": {
     "applied_csv_exists": false,
+    "external_jobs_csv_exists": false,
     "recruiters_csv_exists": false,
     "send_report_exists": false
   }

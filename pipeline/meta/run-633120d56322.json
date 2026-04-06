@@ -12,6 +12,7 @@
   "paths": {
     "run_dir": "D:\\Automation- Project\\pipeline\\runs",
     "applied_csv": "D:\\Automation- Project\\pipeline\\runs\\applied_jobs.csv",
+    "external_jobs_csv": "D:\\Automation- Project\\pipeline\\runs\\external_jobs.csv",
     "recruiters_csv": "D:\\Automation- Project\\pipeline\\runs\\recruiters_enriched.csv",
     "send_report_csv": "D:\\Automation- Project\\pipeline\\reports\\run-633120d56322.csv",
     "manifest_json": "D:\\Automation- Project\\pipeline\\meta\\run-633120d56322.json",
@@ -22,7 +23,8 @@
     "rocketreach_stderr_log": "D:\\Automation- Project\\pipeline\\logs\\run-633120d56322\\rocketreach.stderr.log"
   },
   "artifacts": {
-    "applied_csv_exists": true,
+    "applied_csv_exists": false,
+    "external_jobs_csv_exists": false,
     "recruiters_csv_exists": false,
     "send_report_exists": false
   }

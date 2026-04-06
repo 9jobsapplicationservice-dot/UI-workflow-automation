@@ -1,17 +1,18 @@
 {
   "run_id": "run-fac7348797a6",
-  "status": "waiting_review",
+  "status": "failed",
   "config_path": "",
   "created_at": "2026-04-04T06:45:30+00:00",
   "updated_at": "2026-04-04T07:03:50+00:00",
   "stage_started_at": "2026-04-04T06:45:34+00:00",
   "stage_finished_at": "2026-04-04T07:03:50+00:00",
   "retry_count": 0,
-  "note": "Recruiter enrichment already present. Waiting for email review.",
+  "note": "Manually cleared after auto-handoff fix.",
   "last_error": "",
   "paths": {
     "run_dir": "D:\\Automation- Project\\pipeline\\runs",
     "applied_csv": "D:\\Automation- Project\\pipeline\\runs\\applied_jobs.csv",
+    "external_jobs_csv": "D:\\Automation- Project\\pipeline\\runs\\external_jobs.csv",
     "recruiters_csv": "D:\\Automation- Project\\pipeline\\runs\\recruiters_enriched.csv",
     "send_report_csv": "D:\\Automation- Project\\pipeline\\reports\\run-fac7348797a6.csv",
     "manifest_json": "D:\\Automation- Project\\pipeline\\meta\\run-fac7348797a6.json",
@@ -22,8 +23,9 @@
     "rocketreach_stderr_log": "D:\\Automation- Project\\pipeline\\logs\\run-fac7348797a6\\rocketreach.stderr.log"
   },
   "artifacts": {
-    "applied_csv_exists": true,
-    "recruiters_csv_exists": true,
+    "applied_csv_exists": false,
+    "external_jobs_csv_exists": false,
+    "recruiters_csv_exists": false,
     "send_report_exists": false
   }
 }
